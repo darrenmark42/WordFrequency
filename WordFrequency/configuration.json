@@ -1,0 +1,4 @@
+{
+  "StopWordPath": "Data\\stopwords.txt",
+  "TextPath": "Data\\Text1.txt"
+}

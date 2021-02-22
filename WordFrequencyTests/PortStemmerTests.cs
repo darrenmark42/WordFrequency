@@ -7,16 +7,25 @@ using WordFrequency;
 
 namespace WordFrequencyTests
 {
-    public class PortStemmerTests
+    [TestFixture]
+    class PortStemmerTests
     {
+
+        List<string> voc = new List<string>();
+        List<string> output = new List<string>();
+
+        [SetUp]
+        public void Init()
+        {
+            //Words to be stemmed
+            voc = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData", "voc.txt")).ToList();
+            //Expected output
+            output = System.IO.File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData", "output.txt")).ToList();
+        }
 
         [Test]
         public void PortStemmer_StemWords_VerifyAlgorithmCorrectness()
         {
-            //Read in words to be stemmed
-            List<string> voc = File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"TestData\voc.txt")).ToList();
-            //Read in expected output 
-            List<string> output = System.IO.File.ReadAllLines(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"TestData\output.txt")).ToList();
             PorterStemmer porterStemmer = new PorterStemmer();
             List<string> stemmedWords = new List<string>();
 
