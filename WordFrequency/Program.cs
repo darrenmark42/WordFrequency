@@ -13,6 +13,8 @@ namespace WordFrequency
 
             TextPreparation textPreparation = new TextPreparation(configuration);
 
+            //string ouput = textPreparation.ReturnPreparedText();
+
             Console.WriteLine("Hello World!");
         }
     }
