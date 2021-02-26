@@ -16,6 +16,7 @@ namespace WordFrequencyTests
 
 
         [SetUp]
+        //The sample data was provided by https://tartarus.org/martin/PorterStemmer/
         public void Init()
         {
             //Words to be stemmed

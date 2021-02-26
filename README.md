@@ -21,10 +21,10 @@ Open the folder with the source code and run the following command:
 
 A configuration file is required to be in the same folder as the WordFrequency.dll. The configuration file has the following values:
 
-  "StopWordPath": - The file path to the stopword list
-  "TextPath": - The file path with the text
-  "OutputPath": - the folder path where the results will be written to 
-  "OutputFile": - The file name for the results file
+  "StopWordPath": - The file path to the stopword list </br>
+  "TextPath": - The file path with the text </br>
+  "OutputPath": - the folder path where the results will be written to </br>
+  "OutputFile": - The file name for the results file </br>
   "TopWordCount" - The top number of words you want returned 
 
 
