@@ -41,7 +41,7 @@ namespace WordFrequencyTests
 
             Assert.Multiple(() =>
             {
-                ArgumentException argumentException = Assert.Throws<ArgumentException>(() => fileSystemChecks.FileChecks(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData", "Empty.txt"), "File"));
+                ArgumentException argumentException = Assert.Throws<ArgumentException>(() => fileSystemChecks.FileChecks(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestData", "empty.txt"), "File"));
                 Assert.That(argumentException.Message, Is.EqualTo("File is empty (Parameter 'File')"));
                 Assert.That(argumentException.ParamName, Is.EqualTo("File"));
             });
