@@ -8,11 +8,12 @@ using WordFrequency;
 namespace WordFrequencyTests
 {
     [TestFixture]
-    class PortStemmerTests
+    class PorterStemmerTests
     {
 
         List<string> voc = new List<string>();
         List<string> output = new List<string>();
+
 
         [SetUp]
         public void Init()
@@ -34,8 +35,12 @@ namespace WordFrequencyTests
                 stemmedWords.Add(porterStemmer.StemWord(word));
             }
 
-            Assert.That(stemmedWords.Count, Is.EqualTo(output.Count));
-            Assert.That(stemmedWords.SequenceEqual(output));
+            Assert.Multiple(() =>
+            {
+                Assert.That(stemmedWords.Count, Is.EqualTo(output.Count));
+                Assert.That(stemmedWords.SequenceEqual(output));
+            });
+            
         }
     }
 }

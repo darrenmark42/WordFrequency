@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WordFrequency
+﻿namespace WordFrequency
 {
+	/*This is the Porter Stemming Algorithm By Martin Porter
+	 * Source for this implementation: https://tartarus.org/martin/PorterStemmer/csharp4.txt
+	*/
 	public class PorterStemmer
 	{
 		private char[] wordArray;       // character array copy of the given string

@@ -17,37 +17,31 @@ namespace WordFrequency
         public TextPreparation(IConfiguration configuration)
         {
             _configuration = configuration;
-            stopWords = ReadFile(_configuration.StopWordPath, "StopWordPath").Split('\n').ToList();
+            stopWords = File.ReadAllText(_configuration.StopWordPath).Split('\n').ToList();
             stopWords = stopWords.ConvertAll(x => x.ToLower());
-            text = ReadFile(_configuration.TextPath, "Text Path").Split(' ').ToList();
+            text = new List<string>();
+            string line = String.Empty;
+            StreamReader file = new StreamReader(_configuration.TextPath);
+            //Read in the text file line by line
+            while((line = file.ReadLine()) != null)
+            {
+                //Break up each line by the word 
+                List<string> temp = line.Split(' ').ToList();
+                foreach(string word in temp)
+                {
+                    text.Add(word);
+                }
+            }
+
+            //Set the text to have the same casing 
             text = text.ConvertAll(x => x.ToLower());
         }
 
+        //Added to make testing easier 
         public TextPreparation()
         {
         }
 
-        private string ReadFile(string filePath, string argument)
-        {
-            if(filePath == string.Empty)
-            {
-                throw new ArgumentException(String.Format("File Path is empty"), argument);
-            }
-
-            else if(!File.Exists(filePath))
-            {
-                throw new ArgumentException(String.Format("File does not exist"), argument);
-            }
-            //Checks for an empty file
-            else if(new FileInfo(filePath).Length==0)
-            {
-                throw new ArgumentException(String.Format("File is empty"), argument);
-            }
-            else 
-            {
-                return File.ReadAllText(filePath);
-            }
-        }
 
         public void RemoveStopWords()
         {
@@ -74,7 +68,7 @@ namespace WordFrequency
                     }
                 }
 
-                //String will be empty if word is only non-alphanumeric characters
+                //Stringbuilder will be empty if word is only non-alphanumeric characters
                 if(stringBuilder.Length>0)
                 {
                     //Update the word with only the alphanumeric characters
@@ -87,6 +81,7 @@ namespace WordFrequency
                 }
             }
 
+            //Remove any entries that ended up being empty strings are removing all non-alphanumeric characters
             text.RemoveAll(x => x == string.Empty);
         }
 

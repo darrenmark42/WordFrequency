@@ -4,14 +4,18 @@ namespace WordFrequency.Models
 {
     public class Configuration : IConfiguration
     {
-        public Configuration(string stopWordPath, string textPath)
+        public Configuration()
         {
-            StopWordPath = stopWordPath;
-            TextPath = textPath;
         }
 
         public string StopWordPath { get; set; }
 
         public string TextPath { get; set; }
+
+        public string OutputPath { get; set; }
+
+        public string OutputFile { get; set; }
+
+        public int TopWordCount { get; set; }
     }
 }
