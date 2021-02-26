@@ -25,10 +25,6 @@ namespace WordFrequency
             foreach(string word in words)
             {
                 string temp = porterStemmer.StemWord(word);
-                if(temp =="sai")
-                {
-                    continue;
-                }
                 stemmedWords.Add(temp);
             }
 
