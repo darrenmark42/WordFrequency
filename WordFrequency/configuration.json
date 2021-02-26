@@ -1,7 +1,7 @@
 {
-  "StopWordPath": "C:\\assignment\\stopwords.txt",
-  "TextPath": "C:\\assignment\\Text2.txt",
-  "OutputPath": "C:\\Results",
-  "OutputFile": "Results.txt",
-  "TopWordCount": "20"
+  "StopWordPath": "",
+  "TextPath": "",
+  "OutputPath": "",
+  "OutputFile": "",
+  "TopWordCount": ""
 }
